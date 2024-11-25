@@ -9,7 +9,7 @@ int n, i, j, e, start, top = -1,count=0;
 
 void push(int x)
 {
-    if (top == max - 1)
+    if (top==max-1)
     {
         printf("Stack is full..\n");
     }
@@ -22,7 +22,7 @@ void push(int x)
 
 void pop()
 {
-    if (top == -1)
+    if (top==-1)
     {
         printf("Stack is empty..\n");
     }
@@ -34,20 +34,20 @@ void pop()
 
 void dfs(int z)
 {
-    visited[z] = 1;
+    visited[z]=1;
     push(z);
     printf("\nTraversal order is =");
-    while (top != -1)
+    while(top!=-1)
     {
         int remove = stack[top];
         pop();
         printf("%d->",nodes[remove]);  
 
-        for (i = 0; i < n; i++)
+        for(i=0;i<n;i++)
         {
-            if (graph[remove][i] == 1 && visited[i] == 0)
+            if(graph[remove][i]==1&&visited[i]==0)
             {
-                visited[i] = 1;
+                visited[i]=1;
                 push(i);
             }
         }
@@ -58,9 +58,9 @@ void starting()
 		printf("enter the starting node:");
 		scanf("%d", &start);
 		printf("\n");
-		for (i = 0; i < n; i++)
+		for(i=0;i<n;i++)
 		{
-		    if (start == nodes[i])
+		    if(start==nodes[i])
 		    {
 		    	count+=1;
 		        dfs(i); 
@@ -73,29 +73,29 @@ int main()
 {
 	printf("\n\t\t<<<<<<DFS TRAVERSING>>>>>>\n\n");
     printf("Enter the no of nodes:");
-    scanf("%d", &n);
+    scanf("%d",&n);
     printf("Enter the node values:\n");
-    for (i = 0; i < n; i++)
+    for(i=0;i<n;i++)
     {
-        printf("node %d:", i + 1);
+        printf("node %d:",i+1);
         scanf("%d", &nodes[i]);
     }
 
     printf("answer the questions..\n\n");
     printf("enter 1:if edge between nodes\n\nenter 0:if no edge between nodes\n\n");
-    for (i = 0; i < n; i++)
+    for(i=0;i<n;i++)
     {
-        for (j = i + 1; j < n; j++)
+        for(j=i+1;j<n;j++)
         {
-            printf("edge %d and %d:", nodes[i], nodes[j]);
-            scanf("%d", &e);
-            if (e == 1)
+            printf("edge %d and %d:",nodes[i],nodes[j]);
+            scanf("%d",&e);
+            if (e==1)
             {
-                graph[i][j] = graph[j][i] = 1;
+                graph[i][j]=graph[j][i]=1;
             }
             else
             {
-                graph[i][j] = graph[j][i] = 0;
+                graph[i][j]=graph[j][i]=0;
             }
         }
     }
